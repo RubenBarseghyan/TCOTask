@@ -1,0 +1,49 @@
+
+<div class="must">
+  <div class="main-container">
+    <div class="form-header">
+      <h2>Login</h2>
+    </div>
+    <mat-card class="card">
+      <form class="login-form" [formGroup]="userFormLogin" (ngSubmit)="onSubmit()" *ngIf="!isLoad; else templateRefLoader">
+
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="userEmail">
+        </mat-form-field>
+
+        <mat-error *ngIf="emailErrMsgFromBackend">
+          <p class="error-msg">{{ emailErrMsgFromBackend }}</p>
+        </mat-error>
+
+        <mat-error *ngIf="userFormLogin.controls['userEmail'].invalid && userFormLogin.controls['userEmail'].touched">
+          <p class="error-msg">{{ formControlEmailMsg }}</p>
+        </mat-error>
+
+        <br/>
+
+        <mat-form-field>
+          <input matInput placeholder="Password" formControlName="userPassword" type="password">
+        </mat-form-field>
+
+        <mat-error *ngIf="passErrMsgFromBackend">
+          <p class="error-msg">{{ passErrMsgFromBackend }}</p>
+        </mat-error>
+
+        <mat-error *ngIf="userFormLogin.controls['userPassword'].invalid && userFormLogin.controls['userPassword'].touched">
+          <p class="error-msg">{{ formControlPassMsg }}</p>
+        </mat-error>
+
+        <br/>
+
+        <button [disabled]="userFormLogin.invalid">Login</button>
+
+      </form>
+
+      <ng-template #templateRefLoader>
+        <mat-spinner [diameter]="100" class="spinner"></mat-spinner>
+      </ng-template>
+
+    </mat-card>
+  </div>
+</div>
+

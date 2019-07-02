@@ -1,0 +1,23 @@
+.navbar {
+  justify-content: space-between;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid chartreuse;
+}
+
+a {
+  margin-left: 5%;
+  color: chartreuse;
+  text-decoration: none;
+}
+.container {
+  padding: 2px;
+}
+
+a:hover {
+  cursor: pointer;
+
+}
+.logout {
+  float: right;
+}

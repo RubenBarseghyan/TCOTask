@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "task1",
+    "desc": "must do",
+    "status": "urgent",
+    "date": "5.05.2019",
+    "place": "Gyumry",
+    "address": "Isahakyan Str"
+  },
+  {
+    "id": 2,
+    "title": "task2",
+    "desc": "must do partly",
+    "status": "not urgent",
+    "date": "15.05.2019",
+    "place": "Yerevan",
+    "address": "Charents Str"
+  },
+  {
+    "id": 3,
+    "title": "task3",
+    "desc": "must do partly",
+    "status": "undescribe",
+    "date": "15.05.2019",
+    "place": "Kirovakan",
+    "address": "Sevak Str"
+  }
+]

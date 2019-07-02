@@ -1,0 +1,60 @@
+.main-container{
+  width: 40%;
+  border: 2px solid black;
+  border-radius: 9px;
+}
+.card {
+  background: transparent;
+  transition: none !important;
+  box-shadow: none !important;
+}
+
+h2 {
+  color: black;
+  letter-spacing: 2px;
+}
+
+button {
+  width: 55%;
+  border: 1px solid black;
+  font-size:large;
+  background: transparent;
+  color: #000;
+  border-radius: 4px;
+  padding: 10px;
+}
+mat-form-field {
+  width: 80%;
+  font-size: large;
+  color: #000;
+}
+
+a {
+  margin-right: 2%;
+  color: white;
+  text-decoration: none;
+}
+
+div {
+  text-align: center;
+  padding: 2%;
+}
+
+.spinner {
+  display: block;
+  margin: 40px auto;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.must {
+  height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
