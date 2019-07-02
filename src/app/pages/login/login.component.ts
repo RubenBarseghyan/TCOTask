@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {AuthService} from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   public passErrMsgFromBackend: string;
   public isLoad = false;
 
-  constructor(private router: Router) { }
+  constructor(public router: Router, public authService: AuthService) { }
 
   ngOnInit() {
     this.userFormLogin = new FormGroup({
@@ -25,5 +26,19 @@ export class LoginComponent implements OnInit {
   }
   public onSubmit() {
     this.isLoad = true;
+    this.authService.login().subscribe((res) => {
+      const loginValue = this.userFormLogin.getRawValue();
+      console.log(loginValue);
+      if (res.email === loginValue.userEmail && res.password === loginValue.userPassword) {
+        localStorage.setItem('userInfo', JSON.stringify(res.email));
+        this.router.navigate(['home']);
+      }
+      this.isLoad = false;
+      this.emailErrMsgFromBackend = this.passErrMsgFromBackend = 'there is no user with such email and password';
+
+    }, (err) => {
+      console.log(err.message);
+      this.isLoad = false;
+    });
   }
 }
