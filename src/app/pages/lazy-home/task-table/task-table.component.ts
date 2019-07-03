@@ -2,7 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Task} from '../../../core/models/task';
 import {Router} from '@angular/router';
 import {TasksService} from '../../../core/services/tasks.service';
-import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
+import {MatPaginator, MatTableDataSource, MatSort, MatDialog} from '@angular/material';
+import {DialogComponent} from '../dialog/dialog.component';
 
 
 
@@ -35,7 +36,7 @@ export class TaskTableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
 
-  constructor(private router: Router, private taskService: TasksService) { }
+  constructor(private router: Router, private taskService: TasksService, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.getAllTasks();
@@ -66,7 +67,18 @@ export class TaskTableComponent implements OnInit {
   }
 
   public createTask() {
+      const dialogRef = this.dialog.open(DialogComponent, {
+        width: '40%',
+        data: {
+          title: 'Add New Task'
+        }
+      });
 
+      dialogRef.afterClosed().subscribe((data: Task) => {
+          this.taskList.push(data);
+          this.makeDataForTable(this.taskList);
+
+      }, err => {console.log(err.message); } );
   }
 
   doFilter(value: any) {
