@@ -27,6 +27,7 @@ export class DialogComponent implements OnInit {
       title: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]),
       desc: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]),
       status: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]),
+      date: new FormControl(''),
       place: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]),
       address: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]),
     });
@@ -38,6 +39,12 @@ export class DialogComponent implements OnInit {
 
  public createTask(): void {
    this.theCreatedTask = this.createTaskGroup.getRawValue();
+   const dateObj = this.theCreatedTask.date;
+   const month = dateObj.getUTCMonth() + 1;
+   const day = dateObj.getUTCDate();
+   const year = dateObj.getUTCFullYear();
+   const newdate = year + '.' + month + '.' + day;
+   this.theCreatedTask.date = newdate;
    this.dialogRef.close(this.theCreatedTask);
    this.resetForm();
   }

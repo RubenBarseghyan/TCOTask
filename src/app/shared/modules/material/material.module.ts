@@ -12,7 +12,10 @@ import {
   MatSnackBarModule,
   MatTableModule,
   MatSortModule,
-  MatPaginatorModule, MatSelectModule
+  MatPaginatorModule,
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 import {HeaderComponent} from '../../components/header/header.component';
 import {RouterModule} from '@angular/router';
@@ -32,6 +35,8 @@ const material = [
   MatSortModule,
   MatPaginatorModule,
   MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 ];
 
 
