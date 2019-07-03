@@ -11,6 +11,6 @@ export class TasksService {
   constructor(private http: HttpClient) { }
 
   public getTasks(): Observable<Task> {
-    return this.http.get<Task>('./assets/json/tasks');
+    return this.http.get<Task>('./assets/json/tasks.json');
   }
 }

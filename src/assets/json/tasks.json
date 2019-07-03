@@ -3,7 +3,7 @@
     "id": 1,
     "title": "task1",
     "desc": "must do",
-    "status": "urgent",
+    "status": "1",
     "date": "5.05.2019",
     "place": "Gyumry",
     "address": "Isahakyan Str"
@@ -12,7 +12,7 @@
     "id": 2,
     "title": "task2",
     "desc": "must do partly",
-    "status": "not urgent",
+    "status": "2",
     "date": "15.05.2019",
     "place": "Yerevan",
     "address": "Charents Str"
@@ -21,7 +21,7 @@
     "id": 3,
     "title": "task3",
     "desc": "must do partly",
-    "status": "undescribe",
+    "status": "3",
     "date": "15.05.2019",
     "place": "Kirovakan",
     "address": "Sevak Str"

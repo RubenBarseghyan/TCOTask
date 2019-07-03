@@ -12,7 +12,7 @@ import {
   MatSnackBarModule,
   MatTableModule,
   MatSortModule,
-  MatPaginatorModule
+  MatPaginatorModule, MatSelectModule
 } from '@angular/material';
 import {HeaderComponent} from '../../components/header/header.component';
 import {RouterModule} from '@angular/router';
@@ -30,7 +30,8 @@ const material = [
   MatSnackBarModule,
   MatTableModule,
   MatSortModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatSelectModule,
 ];
 
 
