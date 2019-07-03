@@ -21,7 +21,8 @@ export class TaskTableComponent implements OnInit {
     {value: 'default', status: 'Default'},
     {value: 'title', status: 'Title'},
     {value: 'place', status: 'Place name'},
-    {value: 'address', status: 'Address'}
+    {value: 'address', status: 'Address'},
+    {value: 'date', status: 'Date'}
   ];
   public filterSelectedValue = 'default';
 
@@ -40,13 +41,19 @@ export class TaskTableComponent implements OnInit {
     this.getAllTasks();
   }
 
+  // different data for datatable filtered
+
+  public makeDataForTable(filtered: Task[]) {
+    this.dataSource = new MatTableDataSource(filtered);
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+  }
+
 
   public getAllTasks() {
     this.taskService.getTasks().subscribe((res: any) => {
       this.taskList = res;
-      this.dataSource = new MatTableDataSource(this.taskList);
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
+      this.makeDataForTable(res);
     }, (err) => {console.log(err.message); });
   }
 
@@ -63,6 +70,16 @@ export class TaskTableComponent implements OnInit {
   }
 
   doFilter(value: any) {
+    const filterName = this.filterSelectedValue;
+    if (filterName === 'default') {
+      console.log(this.dataSource, 'datasource');
+      this.dataSource.filter = value.trim().toLocaleLowerCase();
+    } else {
+      const theData = this.taskList.filter((elem) => {
+        return elem[filterName].includes(value.trim().toLowerCase());
+      });
+      this.makeDataForTable(theData);
+    }
 
   }
 }
