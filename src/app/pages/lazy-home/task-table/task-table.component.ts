@@ -70,16 +70,12 @@ export class TaskTableComponent implements OnInit {
   }
 
   doFilter(value: any) {
-    const filterName = this.filterSelectedValue;
+    const filterName = this.filterSelectedValue.trim().toLowerCase();
     if (filterName === 'default') {
-      console.log(this.dataSource, 'datasource');
       this.dataSource.filter = value.trim().toLocaleLowerCase();
     } else {
-      const theData = this.taskList.filter((elem) => {
-        return elem[filterName].includes(value.trim().toLowerCase());
-      });
+      const theData = this.taskList.filter((elem) => elem[filterName].toLowerCase().includes(value.trim().toLowerCase()));
       this.makeDataForTable(theData);
     }
-
   }
 }
