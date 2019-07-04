@@ -21,3 +21,16 @@ button, mat-form-field, mat-option {
   color: chartreuse;
   margin-left: 15px;
 }
+
+.rejected {
+  background-color: rgba(255, 0, 0, 0.6);
+
+}
+.pending {
+  background-color: rgba(0, 255, 0, 0.6);
+}
+
+.resolve {
+  background-color: rgba(0, 0, 100, 0.8);
+
+}

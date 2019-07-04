@@ -78,7 +78,8 @@
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"
+    [ngClass]="{'rejected': row.status === '3', 'pending': row.status === '1', 'resolve': row.status === '2'}"></tr>
   </table>
   <mat-paginator [pageSizeOptions]="[5, 2, 1]" showFirstLastButtons></mat-paginator>
  </div>
