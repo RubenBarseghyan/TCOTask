@@ -42,6 +42,12 @@ export class DialogComponent implements OnInit {
 
  public createTask(): void {
    this.theCreatedTask = this.createTaskGroup.getRawValue();
+   const currentDate = new Date().toISOString();
+   if (this.theCreatedTask.date.toISOString() > currentDate) {
+     this.theCreatedTask.status = '1';
+   } else {
+     this.theCreatedTask.status = '3';
+   }
    const dateObj = this.theCreatedTask.date;
    const month = dateObj.getUTCMonth() + 1;
    const day = dateObj.getUTCDate();
