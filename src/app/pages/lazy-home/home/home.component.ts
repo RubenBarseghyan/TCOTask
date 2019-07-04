@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
+import { NotifierService} from 'angular-notifier';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  constructor(public notifier: NotifierService) { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    this.notifier.notify('success', 'You logged in successfully');
+
   }
 
 }

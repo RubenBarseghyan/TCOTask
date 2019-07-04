@@ -1,5 +1,7 @@
 
 import { NgModule } from '@angular/core';
+import { NotifierModule } from 'angular-notifier';
+
 import {
   MatButtonModule,
   MatCardModule,
@@ -44,11 +46,13 @@ const material = [
   declarations: [HeaderComponent],
   imports: [
     material,
-    RouterModule
+    RouterModule,
+    NotifierModule
   ],
   exports: [
     material,
-    HeaderComponent
+    HeaderComponent,
+    NotifierModule
   ]
 })
 export class MaterialModule { }

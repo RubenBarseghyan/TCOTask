@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 import {TasksService} from '../../../core/services/tasks.service';
 import {MatPaginator, MatTableDataSource, MatSort, MatDialog} from '@angular/material';
 import {DialogComponent} from '../dialog/dialog.component';
+import { NotifierService } from 'angular-notifier';
+
 
 
 
@@ -36,7 +38,10 @@ export class TaskTableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
 
-  constructor(private router: Router, private taskService: TasksService, private dialog: MatDialog) { }
+  constructor(private router: Router,
+              private taskService: TasksService,
+              private dialog: MatDialog,
+              private notifier: NotifierService) { }
 
   ngOnInit() {
     this.getAllTasks();
@@ -78,6 +83,7 @@ export class TaskTableComponent implements OnInit {
         if (data) {
           this.taskList.push(data);
           this.makeDataForTable(this.taskList);
+          this.notifier.notify('success', 'Task successfully added!');
         }
       }, err => {console.log(err.message); } );
   }

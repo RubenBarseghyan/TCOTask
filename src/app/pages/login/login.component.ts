@@ -26,19 +26,23 @@ export class LoginComponent implements OnInit {
   }
   public onSubmit() {
     this.isLoad = true;
-    this.authService.login().subscribe((res) => {
-      const loginValue = this.userFormLogin.getRawValue();
-      console.log(loginValue);
-      if (res.email === loginValue.userEmail && res.password === loginValue.userPassword) {
-        localStorage.setItem('userInfo', JSON.stringify(res.email));
-        this.router.navigate(['home']);
-      }
-      this.isLoad = false;
-      this.emailErrMsgFromBackend = this.passErrMsgFromBackend = 'there is no user with such email and password';
+    setTimeout(() => {
+        this.authService.login().subscribe((res) => {
+          const loginValue = this.userFormLogin.getRawValue();
+          console.log(loginValue);
+          if (res.email === loginValue.userEmail && res.password === loginValue.userPassword) {
+            localStorage.setItem('userInfo', JSON.stringify(res.email));
+            this.router.navigate(['home']);
+          } else {
+            this.isLoad = false;
+            this.emailErrMsgFromBackend = this.passErrMsgFromBackend = 'there is no user with such email and password';
+          }
 
-    }, (err) => {
-      console.log(err.message);
-      this.isLoad = false;
-    });
+        }, (err) => {
+          console.log(err.message);
+          this.isLoad = false;
+        });
+      }, 1500);
+
   }
 }
