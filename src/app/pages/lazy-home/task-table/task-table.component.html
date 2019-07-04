@@ -61,8 +61,8 @@
 
     <ng-container matColumnDef="update">
       <th mat-header-cell *matHeaderCellDef> Update </th>
-      <td mat-cell *matCellDef="let element">
-        <button mat-icon-button color="accent" (click)="redirectToUpdate(element.id)">
+      <td mat-cell *matCellDef="let element; let i = index">
+        <button mat-icon-button color="accent" (click)="redirectToUpdate(element, i)">
           <mat-icon class="mat-18">system_update</mat-icon>
         </button>
       </td>
@@ -70,8 +70,8 @@
 
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef> Delete </th>
-      <td mat-cell *matCellDef="let element">
-        <button mat-icon-button color="warn" (click)="redirectToDelete(element.id)">
+      <td mat-cell *matCellDef="let element; let i = index">
+        <button mat-icon-button color="warn" (click)="redirectToDelete(i)">
           <mat-icon class="mat-18">delete</mat-icon>
         </button>
       </td>

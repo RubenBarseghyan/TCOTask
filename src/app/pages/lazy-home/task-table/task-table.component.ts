@@ -64,26 +64,46 @@ export class TaskTableComponent implements OnInit {
   }
 
   public redirectToDelete(id: any) {
-      console.log(id, 'id of current for delete');
+      this.taskList.splice(id, 1);
+      this.makeDataForTable(this.taskList);
+      this.notifier.notify('info', 'the task was successfully deleted');
   }
 
-  public redirectToUpdate(id: any) {
+  public redirectToUpdate(element: any, id: any ) {
     console.log(id, 'id of current for update');
+    console.log(element);
+    const dialogRefUpdate = this.dialog.open(DialogComponent, {
+      width: '40%',
+      data: {
+        isEdit: true,
+        title: `${element.title} Editing`,
+        el: element,
+        index: id
+      }
+    });
+
+    dialogRefUpdate.afterClosed().subscribe((data) => {
+        if (data) {
+          this.taskList[data.index] = data;
+          this.makeDataForTable(this.taskList);
+          this.notifier.notify('info', 'the task was successfully update');
+        }
+    }, err => console.log(err.message));
   }
 
   public createTask() {
-      const dialogRef = this.dialog.open(DialogComponent, {
+      const dialogRefCreate = this.dialog.open(DialogComponent, {
         width: '40%',
         data: {
           title: 'Add New Task'
         }
       });
 
-      dialogRef.afterClosed().subscribe((data: Task) => {
+      dialogRefCreate.afterClosed().subscribe((data: Task) => {
         if (data) {
           this.taskList.push(data);
           this.makeDataForTable(this.taskList);
-          this.notifier.notify('success', 'Task successfully added!');
+          this.notifier.notify('info', 'Task successfully added!');
         }
       }, err => {console.log(err.message); } );
   }

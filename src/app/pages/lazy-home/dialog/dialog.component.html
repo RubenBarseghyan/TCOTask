@@ -36,7 +36,7 @@
      <mat-card-actions align="center">
        <button *ngIf="!isEdit;else edit" mat-raised-button [disabled]="createTaskGroup.invalid" (click)="createTask()">Create</button>
        <ng-template #edit>
-         <button mat-stroked-button>Save Edit</button>
+         <button mat-stroked-button [disabled]="createTaskGroup.invalid" (click)="createTask()">Save Edit</button>
        </ng-template>
        <button mat-stroked-button (click)="resetForm()"> Reset</button>
        <button mat-stroked-button mat-dialog-close>Cancel</button>

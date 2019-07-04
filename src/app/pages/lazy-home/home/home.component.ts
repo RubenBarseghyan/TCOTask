@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.notifier.notify('success', 'You logged in successfully');
+    this.notifier.notify('info', 'You logged in successfully');
 
   }
 

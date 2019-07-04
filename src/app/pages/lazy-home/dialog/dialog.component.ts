@@ -24,13 +24,16 @@ export class DialogComponent implements OnInit {
 
   public creteTaskForm(): void {
     this.createTaskGroup = new FormGroup({
-      title: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]),
-      desc: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]),
-      status: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]),
-      date: new FormControl(''),
-      place: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]),
-      address: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]),
+      title: new FormControl(this.data.el ? this.data.el.title : '', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]),
+      desc: new FormControl(this.data.el ? this.data.el.desc : '', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]),
+      status: new FormControl(this.data.el ? this.data.el.status : '', [Validators.required, Validators.minLength(1), Validators.maxLength(15)]),
+      date: new FormControl(this.data.el ? this.data.el.date : ''),
+      place: new FormControl(this.data.el ? this.data.el.place : '', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]),
+      address: new FormControl(this.data.el ? this.data.el.address : '', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]),
     });
+    if (this.data.isEdit) {
+      this.isEdit = true;
+    }
   }
 
   public resetForm(): void {
@@ -45,7 +48,11 @@ export class DialogComponent implements OnInit {
    const year = dateObj.getUTCFullYear();
    const newdate = year + '.' + month + '.' + day;
    this.theCreatedTask.date = newdate;
+   if (this.data.el) {
+     this.theCreatedTask.index = this.data.index;
+   }
    this.dialogRef.close(this.theCreatedTask);
    this.resetForm();
   }
+
 }
