@@ -75,9 +75,10 @@ export class TaskTableComponent implements OnInit {
       });
 
       dialogRef.afterClosed().subscribe((data: Task) => {
+        if (data) {
           this.taskList.push(data);
           this.makeDataForTable(this.taskList);
-
+        }
       }, err => {console.log(err.message); } );
   }
 
