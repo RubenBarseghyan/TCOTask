@@ -1,14 +1,14 @@
 
-<div>
+<div class="alternate-theme">
   <button mat-stroked-button (click)="createTask()">Create Task</button>
-  <mat-form-field >
-    <mat-select [(value)]="filterSelectedValue" >
+  <mat-form-field color="accent">
+    <mat-select [(value)]="filterSelectedValue">
       <mat-option *ngFor="let item of filterList" [value]="item.value">
         {{item.status}}
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-form-field>
+  <mat-form-field color="accent">
     <input matInput type="text" placeholder="Search..." (keyup)="doFilter($event.target.value)"  >
   </mat-form-field>
 </div>

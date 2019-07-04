@@ -4,10 +4,10 @@
     <div class="form-header">
       <h2>Login</h2>
     </div>
-    <mat-card class="card">
+    <mat-card class="card" class="alternate-theme">
       <form class="login-form" [formGroup]="userFormLogin" (ngSubmit)="onSubmit()" *ngIf="!isLoad; else templateRefLoader">
 
-        <mat-form-field>
+        <mat-form-field color="accent">
           <input matInput placeholder="Email" formControlName="userEmail">
         </mat-form-field>
 
@@ -21,7 +21,7 @@
 
         <br/>
 
-        <mat-form-field>
+        <mat-form-field color="accent">
           <input matInput placeholder="Password" formControlName="userPassword" type="password">
         </mat-form-field>
 
@@ -35,12 +35,11 @@
 
         <br/>
 
-        <button [disabled]="userFormLogin.invalid">Login</button>
-
+        <button mat-raised-button [disabled]="userFormLogin.invalid" color="accent">Login</button>
       </form>
 
-      <ng-template #templateRefLoader>
-        <mat-spinner [diameter]="100" class="spinner"></mat-spinner>
+      <ng-template #templateRefLoader class="alternate-theme">
+        <mat-spinner [diameter]="100" class="spinner" color="accent"></mat-spinner>
       </ng-template>
 
     </mat-card>

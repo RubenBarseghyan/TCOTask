@@ -3,30 +3,30 @@
    <h2>{{data.title}}</h2>
   </div>
   <div>
-    <form [formGroup]="createTaskGroup">
-     <mat-form-field>
+    <form [formGroup]="createTaskGroup" class="alternate-theme" class="alternate-theme">
+     <mat-form-field color="accent">
        <input matInput placeholder="Title" formControlName="title">
      </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field color="accent">
         <input matInput placeholder="Description" formControlName="desc">
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field color="accent">
         <input matInput placeholder="Status" formControlName="status">
       </mat-form-field>
 
-      <mat-form-field>
-        <input matInput [matDatepicker]="myDatepicker" placeholder="Date" formControlName="date">
+      <mat-form-field class="alternate-theme" color="accent">
+        <input matInput [matDatepicker]="myDatepicker" placeholder="Date" formControlName="date" color="accent">
         <mat-datepicker-toggle [for]="myDatepicker" matSuffix></mat-datepicker-toggle>
         <mat-datepicker #myDatepicker></mat-datepicker>
       </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Place" formControlName="place">
+      <mat-form-field color="accent">
+        <input matInput placeholder="Place" formControlName="place" >
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field color="accent">
         <input matInput placeholder="Address" formControlName="address">
       </mat-form-field>
 
