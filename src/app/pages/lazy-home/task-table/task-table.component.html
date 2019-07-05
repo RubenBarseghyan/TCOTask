@@ -79,10 +79,12 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"
-    [ngClass]="{'rejected': row.status === '3', 'pending': row.status === '1', 'resolve': row.status === '2'}"></tr>
+    [ngClass]="{'rejected': row.status === '3', 'pending': row.status === '1', 'resolve': row.status === '2',
+    'quadrat':row.date === getTasksDate()}"></tr>
   </table>
   <mat-paginator [pageSizeOptions]="[5, 2, 1]" showFirstLastButtons></mat-paginator>
  </div>
 
-<notifier-container></notifier-container>
+
+<notifier-container ></notifier-container>
 

@@ -3,8 +3,8 @@
     "id": 1,
     "title": "task1",
     "desc": "must do",
-    "status": "1",
-    "date": "5.05.2019",
+    "status": "3",
+    "date": "5.5.2019",
     "place": "Gyumry",
     "address": "Isahakyan Str"
   },
@@ -12,8 +12,8 @@
     "id": 2,
     "title": "task2",
     "desc": "must do partly",
-    "status": "2",
-    "date": "15.05.2019",
+    "status": "1",
+    "date": "5.7.2019",
     "place": "Yerevan",
     "address": "Charents Str"
   },
@@ -21,8 +21,8 @@
     "id": 3,
     "title": "task3",
     "desc": "must do partly",
-    "status": "3",
-    "date": "15.05.2019",
+    "status": "1",
+    "date": "15.5.2019",
     "place": "Kirovakan",
     "address": "Sevak Str"
   }

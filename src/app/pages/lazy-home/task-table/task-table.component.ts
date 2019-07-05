@@ -19,6 +19,7 @@ export class TaskTableComponent implements OnInit {
   private taskList: Task[];
   public displayedColumns: string[] = ['id', 'title', 'desc', 'status', 'date', 'place', 'address', 'update', 'delete'];
   public dataSource;
+  public today: string;
 
   public filterList: any[] = [
     {value: 'default', status: 'Default'},
@@ -45,7 +46,7 @@ export class TaskTableComponent implements OnInit {
 
   ngOnInit() {
     this.getAllTasks();
-  }
+      }
 
   // different data for datatable filtered
 
@@ -117,4 +118,12 @@ export class TaskTableComponent implements OnInit {
       this.makeDataForTable(theData);
     }
   }
+
+  public getTasksDate() {
+    const currentMonth = new Date().getMonth() + 1;
+    const currentDate = new Date().getDate();
+    const currentYear = new Date().getFullYear();
+    return `${currentDate}.${currentMonth}.${currentYear}`;
+  }
+
 }
