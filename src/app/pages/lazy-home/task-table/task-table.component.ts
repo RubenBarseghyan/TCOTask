@@ -46,6 +46,7 @@ export class TaskTableComponent implements OnInit {
 
   ngOnInit() {
     this.getAllTasks();
+    console.log(this.getTasksDate());
       }
 
   // different data for datatable filtered
@@ -103,6 +104,7 @@ export class TaskTableComponent implements OnInit {
       dialogRefCreate.afterClosed().subscribe((data: Task) => {
         if (data) {
           this.taskList.push(data);
+          console.log(this.taskList, 'date')
           this.makeDataForTable(this.taskList);
           this.notifier.notify('info', 'Task successfully added!');
         }

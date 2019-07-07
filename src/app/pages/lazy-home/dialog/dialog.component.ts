@@ -50,9 +50,9 @@ export class DialogComponent implements OnInit {
    }
    const dateObj = this.theCreatedTask.date;
    const month = dateObj.getUTCMonth() + 1;
-   const day = dateObj.getUTCDate();
+   const day = dateObj.getUTCDate() + 1;
    const year = dateObj.getUTCFullYear();
-   const newdate = year + '.' + month + '.' + day;
+   const newdate = `${day}.${month}.${year}`;
    this.theCreatedTask.date = newdate;
    if (this.data.el) {
      this.theCreatedTask.index = this.data.index;
